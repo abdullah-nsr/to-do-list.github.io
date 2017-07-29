@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>xlokmclk</title>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="data/main.css">
+  <script type="text/javascript"></script>
+  <script src="data/jquery-3.1.1.slim.min.js" ></script>
+
+
+
+</head>
+<body>
+
+  <div class="main-box">
+    <div class="list-box">
+      <div class="jumpotron">
+        <p>my list</p>
+      </div>
+      <ul class="item" id="myUL">
+
+      </ul>
+    </div>
+    <div class="add-box">
+      <p >Add New Item</p>
+      <input type="text" name="ListItem" id="list-Input" placeholder="new item"/>
+      <button class="btn btn-default btn-lg " type="button" name="button">click</button>
+    </div>
+
+  </div>
+  <script type="text/javascript">
+
+
+  $("button").click(function(){
+    var value   = $("#list-Input").val();
+    var dealetbutton = "<span class='glyphicon glyphicon-remove'>" +"</span>";
+    var newitem = "<li class='list-group-item'>" +"<p class='text_holder'>"+ value +"</p>" + dealetbutton +"</li>" ;
+
+
+    if( value!= "" ) {
+      $("#myUL").append(newitem);
+      $("#list-Input").val('');
+    }  else {
+      alert("You must write something!");
+    }
+  });
+
+  $(document).on('click', '.glyphicon', function() {
+    $(this).parent().remove();
+  });
+
+
+  /*
+
+  $("button").click(function(){
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("list-Input").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+  alert("You must write something!");
+} else {
+document.getElementById("myUL").appendChild(li);
+$("#list-Input").val("");
+} });
+
+*/
+</script>
+
+</body>
+</html>
